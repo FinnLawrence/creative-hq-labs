@@ -2,6 +2,8 @@ $(document).ready(function() {
     $('svg.light path').each(function() {
         $(this).attr("filter", "url(#drop-shadow)");
     });
+    
+    $('select').material_select();
 });
 
 $(window).on('load', function() {

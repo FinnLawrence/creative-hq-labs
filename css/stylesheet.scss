@@ -63,6 +63,7 @@
 
 $off-white: #f0f0f0;
 $off-white-hover: #e0e0e0;
+$light-grey: #b0b0b0;
 $dark-grey: #222222;
 $chq-red: #f91747;
 $chq-blue: #01a0e4;
@@ -77,16 +78,42 @@ html, body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, a, ul, ol, li {
+body {
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6, a, ul, ol, li, p {
     font-family: 'Graphik', sans-serif;
-    color: $dark-grey;
+    color: $off-white;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+p {
+    font-weight: 300;
+}
+
+hr {
+    border: 1px solid $off-white;
 }
 
 a {
     cursor: pointer;
 }
 
-.row {
+.caps {
+    text-transform: uppercase;
+}
+
+.row.spaced {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.container>.row {
     width: 100%;
 }
 
@@ -102,8 +129,110 @@ a {
     min-height: 100vh;
 }
 
-.svg-wrapper {
+footer {
+    background-color: black;
+    padding: 5px 0px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+// FORMS
+
+form {
     
+    margin: 50px 0;
+    .row {
+        margin-bottom: 0px;
+        
+        .input-field {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.btn {
+    color: $off-white;
+    background-color: $dark-grey;
+    border: 2px solid $off-white;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.btn:hover, .btn:active {
+    color: $dark-grey;
+    background-color: $off-white;
+}
+
+.input-field {
+    
+    .subscript {
+        position: absolute;
+        bottom: 0px;
+        right: 0.75rem;
+        color: $light-grey;
+        font-size: 12px;
+    }
+    
+    label {
+        color: $light-grey !important;
+    }
+
+    input {
+        color: $off-white;
+    }
+
+    input:focus + label {
+        color: $off-white !important;
+    }
+
+    input:focus {
+        border-bottom: 1px solid $off-white !important;
+        box-shadow: 0 1px 0 0 $off-white !important;
+    }
+
+    input.valid {
+        border-bottom: 1px solid $off-white !important;
+        box-shadow: 0 1px 0 0 $off-white !important;
+    }
+
+    input.invalid {
+        border-bottom: 1px solid $off-white !important;
+        box-shadow: 0 1px 0 0 $off-white !important;
+    }
+
+    .prefix.active {
+        color: $off-white !important;
+    }
+    
+    .select-wrapper{ 
+        span.caret {
+            color: $off-white;
+        }
+        
+        .dropdown-content {
+            background-color: $off-white;
+            
+            li>a, li>span {
+                color: $dark-grey;
+            }
+            
+            li.disabled>span {
+                color: rgba(0,0,0,0.3);
+            }
+        }
+    }
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px $dark-grey inset !important;
+        -webkit-text-fill-color: $off-white !important;
+    }
+}
+
+// SVG
+
+.svg-wrapper {
+
     position:relative;
 
     svg.neon {
@@ -120,33 +249,33 @@ a {
         path.white {
             stroke: white;
         }
-        
+
         path.red {
             stroke: $chq-red;
         }
-        
+
         path.green {
             stroke: $chq-green;
         }
-        
+
         path.blue {
             stroke: $chq-blue;
         }
     }
-    
+
     svg.tube {
         position: relative;
         z-index: 10;
         opacity: 0.2
     }
-    
+
     svg.light {
         position: absolute;
         z-index: 9;
         top: 0px;
         right: 0px;
         opacity: 0;
-        
+
         path {
             stroke-width: 4px;
         }
@@ -157,40 +286,40 @@ a {
     svg.tube {
         opacity: 0.92;
     }
-    
+
     svg.light {
         opacity: 0.6;
     }
 }
 
 #neon-chq.on {
-    
+
     svg.tube.flicker {
         animation: neon-tube 3s infinite;
     }
-    
+
     svg.light.flicker {
         animation: neon-light 3s infinite;
     }
 }
 
 #neon-labs.on {
-    
+
     svg.tube.flicker {
         animation: neon-tube-alt 3.5s infinite;
     }
-    
+
     svg.light.flicker {
         animation: neon-light-alt 3.5s infinite;
     }
 }
 
 #neon-arrow.on {
-    
+
     svg.tube.flicker {
         animation: neon-tube-arrow 2s infinite;
     }
-    
+
     svg.light.flicker {
         animation: neon-light-arrow 2s infinite;
     }
