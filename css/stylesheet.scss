@@ -1,0 +1,315 @@
+---
+---
+
+// ######
+// MIXINS
+// ######
+
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: -o-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin text-shadow($shadow) {
+    -moz-text-shadow: $shadow;
+    -webkit-text-shadow: $shadow;
+    text-shadow: $shadow;
+}
+
+@mixin animate($animation) {
+    -moz-animation: $animation;
+    -webkit-animation: $animation;
+    animation: $animation;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+// #########
+// VARIABLES
+// #########
+
+$off-white: #f0f0f0;
+$off-white-hover: #e0e0e0;
+$dark-grey: #222222;
+$chq-red: #f91747;
+$chq-blue: #01a0e4;
+$chq-green: #B5E000;
+
+// #######
+// GENERAL
+// #######
+
+html, body {
+    background-color: $dark-grey;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, a, ul, ol, li {
+    font-family: 'Graphik', sans-serif;
+    color: $dark-grey;
+}
+
+a {
+    cursor: pointer;
+}
+
+.row {
+    width: 100%;
+}
+
+.container.half-height {
+    min-height: 50vh;
+}
+
+.container.three-quarter-height {
+    min-height: 75vh;
+}
+
+.container.full-height {
+    min-height: 100vh;
+}
+
+.svg-wrapper {
+    
+    position:relative;
+
+    svg.neon {
+        width: 100%;
+
+        path {
+            fill: none;
+            stroke-miterlimit: 10;
+            stroke-width: 2.5px;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+
+        path.white {
+            stroke: white;
+        }
+        
+        path.red {
+            stroke: $chq-red;
+        }
+        
+        path.green {
+            stroke: $chq-green;
+        }
+        
+        path.blue {
+            stroke: $chq-blue;
+        }
+    }
+    
+    svg.tube {
+        position: relative;
+        z-index: 10;
+        opacity: 0.2
+    }
+    
+    svg.light {
+        position: absolute;
+        z-index: 9;
+        top: 0px;
+        right: 0px;
+        opacity: 0;
+        
+        path {
+            stroke-width: 4px;
+        }
+    }
+}
+
+.svg-wrapper.on {
+    svg.tube {
+        opacity: 0.92;
+    }
+    
+    svg.light {
+        opacity: 0.6;
+    }
+}
+
+#neon-chq.on {
+    
+    svg.tube.flicker {
+        animation: neon-tube 3s infinite;
+    }
+    
+    svg.light.flicker {
+        animation: neon-light 3s infinite;
+    }
+}
+
+#neon-labs.on {
+    
+    svg.tube.flicker {
+        animation: neon-tube-alt 3.5s infinite;
+    }
+    
+    svg.light.flicker {
+        animation: neon-light-alt 3.5s infinite;
+    }
+}
+
+#neon-arrow.on {
+    
+    svg.tube.flicker {
+        animation: neon-tube-arrow 2s infinite;
+    }
+    
+    svg.light.flicker {
+        animation: neon-light-arrow 2s infinite;
+    }
+}
+
+
+
+// ##########
+// ANIMATIONS
+// ##########
+
+/*flickering Neon*/
+@keyframes neon-light {
+
+    0%, 9%, 12%, 13%, 16%, 75%, 78%, 80%, 83%, 100% {
+        opacity: 0.6;  		
+    }
+
+    /*small flicker*/
+    75.5% {
+        opacity: 0.7;
+    }
+    /*medium flicker*/ 
+    9.5%, 80.5% {
+        opacity: 0.8;
+    }
+    /*large flicker*/
+    13.5% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes neon-tube {
+
+    0%, 9%, 12%, 13%, 16%, 75%, 78%, 80%, 83%, 100% {
+        opacity: 0.92;  		
+    }
+
+    /*small flicker*/
+    75.5% {
+        opacity: 0.94;
+    }
+    /*medium flicker*/ 
+    9.5%, 80.5% {
+        opacity: 0.96;
+    }
+    /*large flicker*/
+    13.5% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes neon-light-alt {
+
+    0%, 9%, 12%, 13%, 16%, 75%, 78%, 80%, 83%, 100% {
+        opacity: 0.6;  		
+    }
+
+    /*small flicker*/
+    75.5% {
+        opacity: 0.7;
+    }
+    /*medium flicker*/ 
+    9.5% {
+        opacity: 0.8;
+    }
+    /*large flicker*/
+    13.5%, 80.5% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes neon-tube-alt {
+
+    0%, 9%, 12%, 13%, 16%, 75%, 78%, 80%, 83%, 100% {
+        opacity: 0.92;  		
+    }
+
+    /*small flicker*/
+    75.5% {
+        opacity: 0.94;
+    }
+    /*medium flicker*/ 
+    9.5% {
+        opacity: 0.96;
+    }
+    /*large flicker*/
+    13.5%, 80.5% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes neon-light-arrow {
+
+    1%, 49% {
+        opacity: 0;  		
+    }
+
+    51%, 99% {
+        opacity: 1;
+    }
+}
+
+@keyframes neon-tube-arrow {
+
+    1%, 49% {
+        opacity: 0.2;  		
+    }
+
+    51%, 99% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce{
+    0%, 100% { bottom: 0px; }
+    10%, 90% { bottom: 12px; }
+    20%, 80% { bottom: 18px; }
+    30%, 70% { bottom: 21px; }
+    40%, 60% { bottom: 23px; }
+    48%, 52% { bottom: 25px; }
+}

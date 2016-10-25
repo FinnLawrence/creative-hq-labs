@@ -1,0 +1,39 @@
+@font-face {
+	font-family: 'Graphik';
+	src: url('Graphik-Medium.eot');
+	src: url('Graphik-Medium.eot?#iefix') format('embedded-opentype'),
+		url('Graphik-Medium.woff') format('woff'),
+		url('Graphik-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Graphik';
+	src: url('Graphik-Light.eot');
+	src: url('Graphik-Light.eot?#iefix') format('embedded-opentype'),
+		url('Graphik-Light.woff') format('woff'),
+		url('Graphik-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Graphik';
+	src: url('Graphik-Regular.eot');
+	src: url('Graphik-Regular.eot?#iefix') format('embedded-opentype'),
+		url('Graphik-Regular.woff') format('woff'),
+		url('Graphik-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Graphik';
+	src: url('Graphik-Bold.eot');
+	src: url('Graphik-Bold.eot?#iefix') format('embedded-opentype'),
+		url('Graphik-Bold.woff') format('woff'),
+		url('Graphik-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
