@@ -113,6 +113,16 @@ a {
     margin-bottom: 100px;
 }
 
+.row.hanger {
+    position: relative;
+    
+    .hanging {
+        position: absolute;
+        top: 100%;
+        left: 0px;
+    }
+}
+
 .container>.row {
     width: 100%;
 }
@@ -260,6 +270,14 @@ form {
 
         path.blue {
             stroke: $chq-blue;
+        }
+        
+        path.fill {
+            stroke-width: 0px;
+        }
+        
+        path.fill.white {
+            fill: white;
         }
     }
 
